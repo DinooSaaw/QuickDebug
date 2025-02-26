@@ -13,18 +13,18 @@
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
-    {
+      {
         "command": "extension.insertDebugMessage",
         "title": "Insert Debug Message"
-    }
-],
-"keybindings": [
-    {
+      }
+    ],
+    "keybindings": [
+      {
         "command": "extension.insertDebugMessage",
         "key": "ctrl+alt+l",
         "when": "editorTextFocus"
-    }
-]
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -52,5 +52,10 @@
     "typescript": "^5.7.3",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1"
+  },
+  "author": "DinooSaaw <57213778+DinooSaaw@users.noreply.github.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DinooSaaw/QuickDebug.git"
   }
 }
