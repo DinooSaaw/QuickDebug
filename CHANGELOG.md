@@ -1,4 +1,6 @@
-# 1.1.0
+# Change Log
+
+## 1.1.0
 
 - Added support for C, C++, Java, C#, Go, Ruby, and PHP.
 - Improved debugging output format.
