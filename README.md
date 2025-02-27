@@ -2,13 +2,12 @@
 
 ## Overview
 
-QuickDebug is a Visual Studio Code extension that allows you to quickly insert debug messages for JavaScript, TypeScript, and Python. With a simple command, you can log variable values along with their line and column number for easier debugging.
+QuickDebug is a Visual Studio Code extension that allows you to quickly insert debug messages for multiple programming languages. With a simple command, you can log variable values along with their line and column number for easier debugging.
 
 ## Features
 
-- **Quickly insert debug messages** for JavaScript, TypeScript, and Python.
+- **Quickly insert debug messages** for JavaScript, TypeScript, Python, C, C++, Java, C#, Go, Ruby, and PHP.
 - **Logs the selected variable with its position** (line:column format).
-- **Supports multiple languages** (JavaScript, TypeScript, Python).
 - **Easy to use**: Select a variable, press the shortcut, and insert a debug statement.
 
 ### Example Usage
@@ -27,6 +26,42 @@ result = a + b
 print(f"result (3:5)", result)
 ```
 
+#### C / C++
+
+```c
+printf("result (3:5)\n", result);
+```
+
+#### Java
+
+```java
+System.out.println("result (3:5) " + result);
+```
+
+#### C#
+
+```csharp
+Console.WriteLine("result (3:5) " + result);
+```
+
+#### Go
+
+```go
+fmt.Println("result (3:5)", result)
+```
+
+#### Ruby
+
+```ruby
+puts "result (3:5) #{result}"
+```
+
+#### PHP
+
+```php
+echo "result (3:5) " . $result;
+```
+
 ## Installation
 
 1. Open Visual Studio Code.
@@ -42,7 +77,7 @@ code --install-extension quickdebug.vsix
 
 ## Usage
 
-1. **Select a variable** in your JavaScript, TypeScript, or Python file.
+1. **Select a variable** in your supported language file.
 2. **Use the command palette** (`Ctrl+Shift+P`) and type `Insert Debug Message`.
 3. The debug statement is automatically inserted on the next line.
 
@@ -63,10 +98,14 @@ This extension currently does not add any configurable settings.
 
 ## Known Issues
 
-- Currently only supports JavaScript, TypeScript, and Python.
 - May not work properly on minified or formatted code.
 
 ## Release Notes
+
+### 1.1.0
+
+- Added support for C, C++, Java, C#, Go, Ruby, and PHP.
+- Improved debugging output format.
 
 ### 1.0.0
 
