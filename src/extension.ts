@@ -19,36 +19,49 @@ export function activate(context: vscode.ExtensionContext) {
 
         const line = selection.start.line + 1;
         const column = selection.start.character + 1;
+        const fileName = document.fileName.split(/[/\\]/).pop(); // Extract file name
         const indent = " ".repeat(document.lineAt(selection.end.line).firstNonWhitespaceCharacterIndex);
+
+        // Fetch user-configured format or use a default one
+        const config = vscode.workspace.getConfiguration("quickdebug");
+        const format = config.get<string>("format", "[{file}:{line}:{column}] {variable}: {value}");
+
+        // Replace placeholders in format string
+        let debugMessage = format
+            .replace("{file}", fileName!)
+            .replace("{line}", line.toString())
+            .replace("{column}", column.toString())
+            .replace("{variable}", text)
+            .replace("{value}", text);
 
         let debugStatement = "";
 
         switch (language) {
             case "javascript":
             case "typescript":
-                debugStatement = `${indent}console.log(\`${text} (${line}:${column})\`, ${text});`;
+                debugStatement = `${indent}console.log(\`${debugMessage}\`, ${text});`;
                 break;
             case "python":
-                debugStatement = `${indent}print(f"${text} (line:{${line}}, column:{${column}})", ${text})`;
+                debugStatement = `${indent}print(f"${debugMessage}", ${text})`;
                 break;
             case "c":
             case "cpp":
-                debugStatement = `${indent}printf("${text} (line:%d, column:%d)\\n", ${line}, ${column});`;
+                debugStatement = `${indent}printf("${debugMessage}\\n", ${text});`;
                 break;
             case "java":
-                debugStatement = `${indent}System.out.println("${text} (line: " + ${line} + ", column: " + ${column} + ") " + ${text});`;
+                debugStatement = `${indent}System.out.println("${debugMessage} " + ${text});`;
                 break;
             case "csharp":
-                debugStatement = `${indent}Console.WriteLine("${text} (line: {${line}}, column: {${column}}) " + ${text});`;
+                debugStatement = `${indent}Console.WriteLine("${debugMessage} " + ${text});`;
                 break;
             case "go":
-                debugStatement = `${indent}fmt.Println("${text} (line:", ${line}, "column:", ${column}, ")", ${text})`;
+                debugStatement = `${indent}fmt.Println("${debugMessage}", ${text})`;
                 break;
             case "ruby":
-                debugStatement = `${indent}puts "${text} (line: #{${line}}, column: #{${column}}) #{${text}}"`;
+                debugStatement = `${indent}puts "${debugMessage} #{${text}}"`;
                 break;
             case "php":
-                debugStatement = `${indent}echo "${text} (line: " . ${line} . ", column: " . ${column} . ") " . ${text};`;
+                debugStatement = `${indent}echo "${debugMessage} " . ${text};`;
                 break;
             default:
                 vscode.window.showErrorMessage(`Unsupported language: ${language}`);

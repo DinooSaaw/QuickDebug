@@ -8,9 +8,12 @@ QuickDebug is a Visual Studio Code extension that allows you to quickly insert d
 
 - **Quickly insert debug messages** for JavaScript, TypeScript, Python, C, C++, Java, C#, Go, Ruby, and PHP.
 - **Logs the selected variable with its position** (line:column format).
+- **Customizable output format** via VS Code settings.
 - **Easy to use**: Select a variable, press the shortcut, and insert a debug statement.
 
-### Example Usage
+## Example Usage
+
+### Default Debug Format
 
 #### JavaScript / TypeScript
 
@@ -91,16 +94,41 @@ To assign a keyboard shortcut:
 
 ## Extension Settings
 
-This extension currently does not add any configurable settings.
+This extension allows you to configure the debug message format.
 
-- **Keybind**: `Ctrl + Alt + L`
-  - Triggers the insertion of a debug message, logging the highlighted variable.
+- **`quickdebug.format`** *(string, default: `[{file}:{line}:{column}] {variable}: {value}`)*
+  - Customize how the debug message is formatted.
+  - Available placeholders:
+    - `{file}` → File name
+    - `{line}` → Line number
+    - `{column}` → Column number
+    - `{variable}` → Variable name
+    - `{value}` → Variable value
+
+### Example Custom Format
+
+If you set `quickdebug.format` to:
+
+```json
+"quickdebug.format": "Debug -> {variable}: {value} (at {file}:{line})"
+```
+
+#### JavaScript Output
+
+```js
+console.log("Debug -> result: ", result, " (at script.js:3)");
+```
 
 ## Known Issues
 
 - May not work properly on minified or formatted code.
 
 ## Release Notes
+
+### 1.1.1
+
+- **Added configurable debug message format** via `quickdebug.format` setting.
+- Improved formatting for multiple languages.
 
 ### 1.1.0
 

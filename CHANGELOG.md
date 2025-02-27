@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.1.1
+
+- Added configurable debug message format via `quickdebug.format` setting.
+- Improved formatting for multiple languages.
+
 ## 1.1.0
 
 - Added support for C, C++, Java, C#, Go, Ruby, and PHP.
