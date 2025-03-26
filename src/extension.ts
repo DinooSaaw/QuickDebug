@@ -39,6 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
         switch (language) {
             case "javascript":
             case "typescript":
+            case "typescriptreact":
                 debugStatement = `${indent}console.log(\`${debugMessage}\`, ${text});`;
                 break;
             case "python":
