@@ -2,7 +2,7 @@
   "name": "quickdebug",
   "displayName": "QuickDebug",
   "description": "Instantly generate debug messages for your code with a single action. Seamlessly log highlighted variables or expressions in the correct debug format for your project.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "engines": {
     "vscode": "^1.97.0"
   },
