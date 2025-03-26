@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.1.2
+
+- Added support for TypeScriptReact
+
 ## 1.1.1
 
 - Added configurable debug message format via `quickdebug.format` setting.
