@@ -37,6 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
         let debugStatement = "";
 
         switch (language) {
+            case "svelte":
             case "javascript":
             case "typescript":
             case "typescriptreact":

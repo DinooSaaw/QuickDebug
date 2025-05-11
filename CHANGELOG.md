@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.1.3
+
+- Added support for Svelte
+
 ## 1.1.2
 
 - Added support for TypeScriptReact

@@ -125,6 +125,14 @@ console.log("Debug -> result: ", result, " (at script.js:3)");
 
 ## Release Notes
 
+### 1.1.3
+
+- Added support for Svelte
+
+### 1.1.2
+
+- Added support for TypeScriptReact
+
 ### 1.1.1
 
 - **Added configurable debug message format** via `quickdebug.format` setting.
