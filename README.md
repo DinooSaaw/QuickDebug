@@ -151,4 +151,4 @@ console.log("Debug -> result: ", result, " (at script.js:3)");
 ## More Information
 
 - [VS Code Extension API](https://code.visualstudio.com/api)
-- [GitHub Repository](https://github.com/your-repo/quickdebug)
+- [GitHub Repository](https://github.com/dinoosaaw/quickdebug)
